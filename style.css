@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    margin: 50px;
+    background-color: #e8e9ee;
+    font-family: 'Sofia Sans Condensed', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+/* Header */
+
+.header {
+    display: grid;
+    grid-template-areas: 
+    'hero hero feature-1'
+    'hero hero feature-2';
+}
+
+.hero {
+    padding: 50px;
+    grid-area: hero;
+    min-height: 300px;
+    background-image: url(img/hero.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h2, .hero p {
+    display: none;
+}
+
+.features {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.feature-1 {
+    grid-area: feature-1;
+    background-image: url(img/shirt-example-1.jpg);
+    background-size: cover;
+    background-position: top;
+}
+
+.feature-2 {
+    grid-area: feature-2;
+    background-image: url(img/shirt-example-2.jpg);
+    background-size: cover;
+    background-position: top;
+}
+
+.features .price {
+    font-size: 3em;
+    font-weight: 200;
+}
