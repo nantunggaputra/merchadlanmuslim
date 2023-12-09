@@ -9,9 +9,16 @@ img {
 
 body {
     margin: 50px;
-    background-color: #e8e9ee;
+    background-color: rgb(232, 233, 238);
     font-family: 'Sofia Sans Condensed', Arial, Helvetica, sans-serif;
     font-size: 18px;
+}
+
+/* Container */
+
+.container {
+    display: grid;
+    gap: 10px;
 }
 
 /* Header */
@@ -37,9 +44,9 @@ body {
 }
 
 .features {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
     display: grid;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     justify-content: center;
     align-content: center;
     text-align: center;
@@ -61,6 +68,216 @@ body {
 }
 
 .features .price {
+    margin: 5px;
+    background-color: rgba(40, 40, 40, 0.7);
     font-size: 3em;
     font-weight: 200;
+}
+.features .item {
+    margin: 5px;
+    background-color: rgba(40, 40, 40, 0.7);
+}
+
+/* Navigation */
+
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.menu .brand {
+    font-size: 1.4em;
+    color: rgb(40, 40, 40);
+}
+
+.menu ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    
+}
+
+.menu a {
+    padding: 5px;
+    display: block;
+    text-decoration: none;
+    background-color: rgb(40, 40, 40);
+    color: rgb(232, 233, 238);
+    text-align: center;
+}
+
+
+/* Edge_Menu */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: rgb(40, 40, 40);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.menu-toggle input {
+    display: block;
+    position: absolute;
+    background-color: rgb(40, 40, 40);
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top: -5px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Edge_Menu_Animation */
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: rgba(232, 233, 238, 0.8);
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    background-color: rgba(232, 233, 238, 0.8);
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* Products */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.product {
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.product .icon {
+    padding-bottom: 5px;
+    font-size: 2em;
+}
+
+.product h3 {
+    font-size: 1.5em;
+}
+
+.product p {
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+}
+
+/* !WARNING Responsive_Breakpoint */
+
+/* ?QUESTION Check again is it responsive? */
+
+/* TODO Laptop */
+
+@media (max-width: 1024px) {
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+    .menu .brand {
+        display: none;
+    }
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+    }
+    .hero h2, .hero p {
+        margin: 5px;
+        padding: 5px;
+        display: block;
+        background-color: rgba(232, 233, 238, 0.8);
+        color: rgb(34, 34, 34);
+    }
+}
+
+/* TODO Tablet */
+
+@media (max-width: 768px) {
+    body {
+        margin: 5px;
+    }
+    .menu {
+        order: -1;
+        justify-items: end;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .menu ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        top: 0;
+        background-color: rgb(40, 40, 40);
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 1;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 1s;
+    }
+    .menu ul.slide {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TODO Mobile */
+
+@media (max-width: 600px) {
+    body {
+        margin: 5px;
+    }
+    .header {
+        grid-template-areas:
+        'hero'
+        'feature-1'
+        'feature-2';
+    }
+    .hero {
+        align-items: center;
+        justify-content: end;
+    }
 }
