@@ -25,9 +25,9 @@ body {
 
 .header {
     display: grid;
-    grid-template-areas: 
-    'hero hero feature-1'
-    'hero hero feature-2';
+    grid-template-areas:
+        'hero hero feature-1'
+        'hero hero feature-2';
 }
 
 .hero {
@@ -39,7 +39,8 @@ body {
     background-position: center;
 }
 
-.hero h2, .hero p {
+.hero h2,
+.hero p {
     display: none;
 }
 
@@ -73,6 +74,7 @@ body {
     font-size: 3em;
     font-weight: 200;
 }
+
 .features .item {
     margin: 5px;
     background-color: rgba(40, 40, 40, 0.7);
@@ -99,7 +101,7 @@ body {
     gap: 5px;
     font-size: 0.95em;
     text-transform: uppercase;
-    
+    cursor: default;
 }
 
 .menu a {
@@ -156,17 +158,17 @@ body {
     transform-origin: 0 100%;
 }
 
-.menu-toggle input:checked ~ span:nth-child(2) {
+.menu-toggle input:checked~span:nth-child(2) {
     background-color: rgba(232, 233, 238, 0.8);
     transform: rotate(45deg) translate(-1px, -1px);
 }
 
-.menu-toggle input:checked ~ span:nth-child(4) {
+.menu-toggle input:checked~span:nth-child(4) {
     background-color: rgba(232, 233, 238, 0.8);
     transform: rotate(-45deg) translate(-1px, 0);
 }
 
-.menu-toggle input:checked ~ span:nth-child(3) {
+.menu-toggle input:checked~span:nth-child(3) {
     opacity: 0;
     transform: scale(0);
 }
@@ -200,6 +202,39 @@ body {
     font-size: 0.8em;
 }
 
+/* Gallery */
+
+.gallery {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery h2 {
+    margin-bottom: 20px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: center;
+}
+
+/* Credit */
+
+.credit p {
+    margin: 35px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    color: rgb(34, 34, 34);
+    font-weight: 400;
+}
+
+.credit a {
+    margin: 0 5px;
+    color: rgb(34, 34, 34);
+    font-weight: 400;
+    text-decoration: none;
+}
+
 /* !WARNING Responsive_Breakpoint */
 
 /* ?QUESTION Check again is it responsive? */
@@ -211,16 +246,20 @@ body {
         order: inherit;
         grid-template-columns: 1fr;
     }
+
     .menu .brand {
         display: none;
     }
+
     .hero {
         display: flex;
         flex-direction: column;
         align-items: start;
         justify-content: end;
     }
-    .hero h2, .hero p {
+
+    .hero h2,
+    .hero p {
         margin: 5px;
         padding: 5px;
         display: block;
@@ -235,13 +274,16 @@ body {
     body {
         margin: 5px;
     }
+
     .menu {
         order: -1;
         justify-items: end;
     }
+
     .menu-toggle {
         display: flex;
     }
+
     .menu ul {
         display: flex;
         position: absolute;
@@ -258,6 +300,7 @@ body {
         opacity: 0;
         transition: all 1s;
     }
+
     .menu ul.slide {
         opacity: 1;
         transform: translateY(0);
@@ -270,14 +313,21 @@ body {
     body {
         margin: 5px;
     }
+
     .header {
         grid-template-areas:
-        'hero'
-        'feature-1'
-        'feature-2';
+            'hero'
+            'feature-1'
+            'feature-2';
     }
+
     .hero {
         align-items: center;
         justify-content: end;
+    }
+
+    .credit p {
+        display: block;
+        text-align: center;
     }
 }
